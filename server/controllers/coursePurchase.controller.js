@@ -7,7 +7,7 @@ import { User } from "../models/user.model.js";
 // Create a new Stripe instance(object) with your Stripe API Key
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const frontendURL = process.env.FRONTEND_URL || "http://localhost:5173";
+const frontendURL = process.env.VITE_FRONTEND_URL || "http://localhost:5173";
 
 
 export const createCheckoutSession = async (req, res) => {

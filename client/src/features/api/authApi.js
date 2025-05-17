@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { userLoggedIn, userLoggedOut } from "../authSlice";
 
 //ye base url hai, yhi se user/login ya user/register hoga (ye dono ke liye common hoga)
-const USER_API = `${import.meta.env.BACKEND_URL}/api/v1/user/`;
+const USER_API = `${import.meta.env.VITE_BACKEND_URL}/api/v1/user/`;
 
 // const USER_API = "http://localhost:8080/api/v1/user/";
 
