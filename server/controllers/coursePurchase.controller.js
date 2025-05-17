@@ -7,6 +7,9 @@ import { User } from "../models/user.model.js";
 // Create a new Stripe instance(object) with your Stripe API Key
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+const frontendURL = process.env.FRONTEND_URL || "http://localhost:5173";
+
+
 export const createCheckoutSession = async (req, res) => {
   try {
     const userId = req.id;
@@ -41,10 +44,14 @@ export const createCheckoutSession = async (req, res) => {
           quantity: 1,
         },
       ],
+      
       mode: "payment",
-      success_url: `http://localhost:5173/course-progress/${courseId}`, // once payment successful redirect to course progress page
-      cancel_url: `http://localhost:5173/course-detail/${courseId}`,
-      metadata: {
+
+      success_url: `${frontendURL}/course-progress/${courseId}`, // redirect after successful payment
+      cancel_url: `${frontendURL}/course-detail/${courseId}`,
+
+
+       metadata: {
         courseId: courseId,
         userId: userId,
       },
