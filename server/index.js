@@ -23,10 +23,31 @@ const PORT = process.env.PORT || 3000;
 // default Middleware 
 app.use(express.json()); 
 app.use(cookieParser());
+
+//original cors policy
+// app.use(cors({
+//     origin: process.env.VITE_FRONTEND_URL || "http://localhost:5173", 
+//     credentials: true
+// }));
+
+
+//new cors policy 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://your-frontend.onrender.com"
+];
+
 app.use(cors({
-    origin: process.env.VITE_FRONTEND_URL || "http://localhost:5173", 
-    credentials: true
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
 }));
+
 
 
 // APIs here
