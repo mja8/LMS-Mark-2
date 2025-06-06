@@ -34,7 +34,7 @@ app.use(cookieParser());
 //new cors policy 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://your-frontend.onrender.com"
+  "https://lms-mark-2-frontend.onrender.com"
 ];
 
 app.use(cors({
