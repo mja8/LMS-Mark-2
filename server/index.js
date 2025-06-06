@@ -32,19 +32,8 @@ app.use(cookieParser());
 
 
 //new cors policy 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://lms-mark-2-frontend.onrender.com"
-];
-
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: (origin, callback) => callback(null, origin), // echo back origin
   credentials: true
 }));
 
