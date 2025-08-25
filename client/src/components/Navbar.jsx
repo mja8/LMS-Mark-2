@@ -109,7 +109,7 @@ const Navbar = () => {
       {/* md:hidden se ye medium sized devices ke liye hidden ho gya hai aur sirf phone me hi dikhega */}
       {/* change in future */}
       <div className="flex md:hidden items-center justify-between px-4 h-full">
-        <h1 className="font-extrabold text-2xl">E-learning</h1>
+        <h1 className="font-extrabold text-2xl">SwaAdhyaya</h1>
         <MobileNavbar user={user} />
       </div>
     </div>
@@ -138,7 +138,7 @@ const MobileNavbar = ({ user }) => {
       <SheetContent className="flex flex-col">
         <SheetHeader className="flex flex-row items-center justify-between mt-2">
           <SheetTitle>
-            <Link to="/">E-Learning</Link>
+            <Link to="/">SwaAdhyaya</Link>
           </SheetTitle>
           <DarkMode />
         </SheetHeader>
