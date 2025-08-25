@@ -13,8 +13,9 @@ export const generateToken = (res, user, message) => {
     .status(200)
     .cookie("token", token, {
       httpOnly: true,
-      sameSite: "strict",
-      maxAge: 24 * 60 * 60 * 1000, // 1 day(1000 milisecond)
+      secure: true, //needed for https
+      sameSite: "none", //allows cross site cookies (becoz fronend and backend are at different domain in render)
+      maxAge: 2*24 * 60 * 60 * 1000, // 1 day(1000 milisecond)
     }).json({
         success:true,
         message,
