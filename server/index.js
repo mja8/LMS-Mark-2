@@ -33,9 +33,13 @@ app.use(cookieParser());
 
 //new cors policy 
 app.use(cors({
-  origin: (origin, callback) => callback(null, origin), // echo back origin
+  origin: [
+    "https://lms-mark-2-frontend.onrender.com", // origin is set as deployed frontend
+    "http://localhost:5173"                     // and local server also
+  ],
   credentials: true
 }));
+
 
 
 
