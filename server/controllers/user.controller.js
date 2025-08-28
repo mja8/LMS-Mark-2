@@ -166,7 +166,7 @@ export const updateProfile = async (req,res) => {
         // extract public id of the old image from the url if it exists;
         if(user.photoUrl){
             const publicId = user.photoUrl.split("/").pop().split(".")[0]; // extract public id
-            deleteMediaFromCloudinary(publicId); // delete old photo (nya photo add krne se pehle)
+            deleteMediaFrom(publicId); // delete old photo (nya photo add krne se pehle)
         }
 
         // upload new photo (cloud pe upload kro photo ko)
