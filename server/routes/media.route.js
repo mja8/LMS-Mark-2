@@ -5,16 +5,14 @@ import { uploadMedia } from "../utils/cloudinary.js";
 const router = express.Router();
 
 router.route("/upload-video").post(upload.single("file"), async (req, res) => {
+  //old code to check adding video lec to DB
   try {
-    const result = await uploadMedia(req.file.path);
-    res.status(200).json({
-      success: true,
-      message: "File uploaded successfully.",
-      data: {
-        url: result.secure_url, // changed this as HTTPS link is sent to old frontend instead of http link (which gives not secure warning)
-        public_id: result.public_id,
-      },
-    });
+        const result = await uploadMedia(req.file.path);
+        res.status(200).json({
+            success:true,
+            message:"File uploaded successfully.",
+            data:result
+        });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Error uploading file" });
